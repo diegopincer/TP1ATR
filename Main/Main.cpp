@@ -119,7 +119,7 @@ int main()
 	int teclas[5] = { TeclaA, TeclaB, TeclaEsp, TeclaEsp, TeclaEsp };
 	CONDITION_VARIABLE* condvars[5] = { &CondVarA, &CondVarB, &CondVarEsp, &CondVarEsp, &CondVarEsp };
 	thread_data parametros[5];
-	BOOL bStatus;
+	BOOL StatusMemCirc, StatusAlarmes, StatusDados, StatusOtimizacao;
 	STARTUPINFO si;
 	PROCESS_INFORMATION NewProcess;
 
@@ -144,11 +144,11 @@ int main()
 	InitializeConditionVariable(&CondVarB);
 	InitializeConditionVariable(&CondVarEsp);
 
-	//Cria processo servidor
+	//Criando Processo de memória Circular
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);	// Tamanho da estrutura em bytes
 	
-	bStatus = CreateProcess(
+	StatusMemCirc = CreateProcess(
 		"..\\Debug\\MemCirc.exe", // Nome
 		NULL,	// linha de comando
 		NULL,	// atributos de seguran�a: Processo
@@ -159,6 +159,57 @@ int main()
 		"..\\Debug",	// diretório corrente do filho
 		&si,			// lpStartUpInfo
 		&NewProcess);	// lpProcessInformation
+		GetLastError();
+
+		//Criando Processo de Tratamento de Alarmes
+		ZeroMemory(&si, sizeof(si));
+		si.cb = sizeof(si);	// Tamanho da estrutura em bytes
+
+		StatusAlarmes = CreateProcess(
+			"..\\Debug\\ProcessoAlarmes.exe", // Nome
+			NULL,	// linha de comando
+			NULL,	// atributos de seguran�a: Processo
+			NULL,	// atributos de seguran�a: Thread
+			FALSE,	// heran�a de handles
+			NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE,	// CreationFlags
+			NULL,	// lpEnvironment
+			"..\\Debug",	// diretório corrente do filho
+			&si,			// lpStartUpInfo
+			&NewProcess);	// lpProcessInformation
+		GetLastError();
+
+		//Criando Processo de Tratamento de Dados
+		ZeroMemory(&si, sizeof(si));
+		si.cb = sizeof(si);	// Tamanho da estrutura em bytes
+
+		StatusDados = CreateProcess(
+			"..\\Debug\\ProcessoDados.exe", // Nome
+			NULL,	// linha de comando
+			NULL,	// atributos de seguran�a: Processo
+			NULL,	// atributos de seguran�a: Thread
+			FALSE,	// heran�a de handles
+			NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE,	// CreationFlags
+			NULL,	// lpEnvironment
+			"..\\Debug",	// diretório corrente do filho
+			&si,			// lpStartUpInfo
+			&NewProcess);	// lpProcessInformation
+		GetLastError();
+
+		//Criando Processo de Otimização
+		ZeroMemory(&si, sizeof(si));
+		si.cb = sizeof(si);	// Tamanho da estrutura em bytes
+
+		StatusOtimizacao = CreateProcess(
+			"..\\Debug\\ProcessoOtimizacao.exe", // Nome
+			NULL,	// linha de comando
+			NULL,	// atributos de seguran�a: Processo
+			NULL,	// atributos de seguran�a: Thread
+			FALSE,	// heran�a de handles
+			NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE,	// CreationFlags
+			NULL,	// lpEnvironment
+			"..\\Debug",	// diretório corrente do filho
+			&si,			// lpStartUpInfo
+			&NewProcess);	// lpProcessInformation
 		GetLastError();
 
 	//-----------------------------------------------------------------------------

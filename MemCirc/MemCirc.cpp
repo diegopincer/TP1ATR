@@ -1,7 +1,3 @@
-// MemCirc.cpp : Este arquivo contém a função 'main'. A execução do programa começa e termina ali.
-//
-
-#include <iostream>
 #define WIN32_LEAN_AND_MEAN 
 #define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
 #include <windows.h>
@@ -11,12 +7,13 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <ctype.h>
+#include <iostream>
 
 int main()
 {
-    while (1) {
-        printf("memoria circular inicializada 123 123\n");
-    }
+    
+    printf("memoria circular inicializada 123 123\n");
+    Sleep(50000);
     return 0;
 }
 

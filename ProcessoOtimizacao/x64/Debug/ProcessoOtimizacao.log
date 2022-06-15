@@ -1,0 +1,7 @@
+﻿  ProcessoOtimizacao.cpp
+C:\Users\diego\Desktop\TP1ATR\ProcessoOtimizacao\ProcessoOtimizacao.cpp(15,59): error C2664: 'HANDLE OpenEventW(DWORD,BOOL,LPCWSTR)': não é possível converter um argumento 3 de 'const char [10]' em 'LPCWSTR'
+C:\Users\diego\Desktop\TP1ATR\ProcessoOtimizacao\ProcessoOtimizacao.cpp(15,48): message : Tipos apontados não são relacionados; conversão requer reinterpret_cast, conversão C-style ou conversão function-style entre parênteses
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\synchapi.h(501,1): message : consulte a declaração de 'OpenEventW'
+C:\Users\diego\Desktop\TP1ATR\ProcessoOtimizacao\ProcessoOtimizacao.cpp(17,14): error C2664: 'HANDLE CreateMailslotW(LPCWSTR,DWORD,DWORD,LPSECURITY_ATTRIBUTES)': não é possível converter um argumento 1 de 'const char [23]' em 'LPCWSTR'
+C:\Users\diego\Desktop\TP1ATR\ProcessoOtimizacao\ProcessoOtimizacao.cpp(18,3): message : Tipos apontados não são relacionados; conversão requer reinterpret_cast, conversão C-style ou conversão function-style entre parênteses
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winbase.h(2545,1): message : consulte a declaração de 'CreateMailslotW'
