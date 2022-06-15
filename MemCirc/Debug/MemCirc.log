@@ -1,0 +1,4 @@
+﻿  MemCirc.cpp
+C:\Users\Usuario\Desktop\Trabalho\TP1ATR\MemCirc\MemCirc.cpp(6,1): warning C4005: '_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES': redefinição de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt.h(533): message : consulte a definição anterior de '_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES'
+  MemCirc.vcxproj -> C:\Users\Usuario\Desktop\Trabalho\TP1ATR\Debug\MemCirc.exe
